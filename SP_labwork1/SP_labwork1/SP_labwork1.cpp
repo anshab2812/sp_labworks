@@ -34,24 +34,24 @@ int main(int argc, char* argv[])
     else input = (string)argv[argc-1];
 
     
-    MEMORYSTATUS mem;
+    MEMORYSTATUSEX mem;
     mem.dwLength - sizeof(mem);
-    GlobalMemoryStatus(&mem);
+    GlobalMemoryStatusEx(&mem);
     SYSTEM_INFO sys;
     GetSystemInfo(&sys);
 
     if (input == "-e")
     {
-        LocalAlloc(LMEM_FIXED, 7444444444448888);
+        LocalAlloc(LMEM_FIXED, mem.ullTotalVirtual * 2);
         cout << "Ошибка: " << GetLastErrorAsString() << endl;
     }
     else if (input == "-s") {
         cout<< "\tИнформация о памяти:" <<endl;
         cout << "Используется " << mem.dwMemoryLoad << "% памяти" << endl;
-        cout << "Общий объем физической памяти : " << mem.dwTotalPhys / DIV << " KB" << endl;
-        cout << "Доступно физической памяти:" << mem.dwAvailPhys / DIV << " KB" << endl;
-        cout << "Общий объем виртуальной памяти: " << mem.dwTotalVirtual / DIV << " KB" << endl;
-        cout << "Доступно виртуальной памяти:" << mem.dwAvailVirtual / DIV << " KB" << endl;
+        cout << "Общий объем физической памяти : " << mem.ullTotalPhys / DIV << " KB" << endl;
+        cout << "Доступно физической памяти:" << mem.ullAvailPhys / DIV << " KB" << endl;
+        cout << "Общий объем виртуальной памяти: " << mem.ullTotalVirtual / DIV << " KB" << endl;
+        cout << "Доступно виртуальной памяти:" << mem.ullAvailVirtual / DIV << " KB" << endl;
         cout << "\tИнформация о процессоре:" << endl;
         cout << "OEM ID:"<< sys.dwOemId << endl;
         cout << "Число процессоров: " << sys.dwNumberOfProcessors << endl;
