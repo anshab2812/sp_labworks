@@ -1,4 +1,9 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
+#define EXIT 0
+#define CHANGE 1
+#define DELETE 2
+#define ADD 3
+#define PRINT 4
 #include <iostream>
 #include <windows.h>
 #include <vector>
@@ -193,19 +198,19 @@ int main() {
 		cout << "Выберите действие: ";
 		cin >> key;
 		switch (key) {
-		case 0:
+		case EXIT:
 			exit(EXIT_SUCCESS);
 			break;
-		case 1:
+		case CHANGE:
 			Change_rec();
 			break;
-		case 2:
+		case DELETE:
 			delete_rec();
 			break;
-		case 3:
+		case ADD:
 			Add_rec();
 			break;
-		case 4:
+		case PRINT:
 			PrintAllInformation();
 			break;
 		default:

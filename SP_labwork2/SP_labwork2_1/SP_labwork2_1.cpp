@@ -1,4 +1,10 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
+#define EXIT 0
+#define PRINT 1
+#define COPY 2
+#define CREATE 3
+#define FULL 4
+#define DELETE 5
 #include <windows.h>;
 #include <iostream>
 #include <locale.h>
@@ -177,22 +183,22 @@ int main() {
 		cin >> choice;
 
 		switch (choice) {
-		case 0:
+		case EXIT:
 			SetDirectory(buffer);
 			break;
-		case 1:
+		case PRINT:
 			PrintDirectory(buffer);
 			break;
-		case 2:
+		case COPY:
 			CopyFileInCurDir(buffer);
 			break;
-		case 3:
+		case CREATE:
 			MyCreateDirectory(buffer);
 			break;
-		case 4:
+		case FULL:
 			FullInformation(buffer);
 			break;
-		case 5:
+		case DELETE:
 			MyDelete(buffer);
 			break;
 		}
